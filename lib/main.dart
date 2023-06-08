@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         title: 'Namer App',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         ),
         home: MyHomePage(),
       ),
@@ -45,7 +45,7 @@ class MyHomePage extends StatelessWidget {
       body: Column(
         children: [
           Text('A random idea:'),
-          Bigcart(pair: pair),
+          Bigcard(pair: pair),
           ElevatedButton(
               onPressed: () {
                 print('button pressed');
@@ -58,8 +58,8 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class Bigcart extends StatelessWidget {
-  const Bigcart({
+class Bigcard extends StatelessWidget {
+  const Bigcard({
     super.key,
     required this.pair,
   });
@@ -68,9 +68,12 @@ class Bigcart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Card(
+      color: theme.colorScheme.primary,
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20),
         child: Text(pair.asLowerCase),
       ),
     );
